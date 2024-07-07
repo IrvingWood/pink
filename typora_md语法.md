@@ -174,13 +174,15 @@ y\prime\\
 \theta
 \sigma
 \mu
-\epsilon
+\epsilon
+
 $$
 $\int_0^xtdt$     
 $$
 \lim_{n\rightarrow+\infty}\frac{1}{n}\\
 \sum_{i=1}^n\\
-f(x)=\frac{1}{x_1}+\frac{1}{x_2}+\cdots+\frac{1}{x_n}\\
+f(x)=\frac{1}{x_1}+\frac{1}{x_2}+\cdots+\frac{1}{x_n}\\
+
 $$
 
 
