@@ -1,4 +1,4 @@
-### AI课前导学
+#### AI课前导学
 
 python基本库：（numpy pandas）数据分析+人工智能的基础
 
@@ -10,20 +10,17 @@ python是综合学科：python web 爬虫 数据分析
 
 ​				数据分析岗：监控数据 给出一些决策建议（商业数据分析模式）
 
-### Jupter基础
+#### Jupter基础
 
-#### 单元格介绍
+##### 单元格介绍
 
-cell单元格有两种<b>【状态】</b>：
-
+cell单元格有两种**【状态】**：
 选中状态：没有光标闪动，此时可以对整个单元格操作、比如删除单元格、新增一个单元格、复制、粘贴、撤销、切换模式
-
 编辑状态：能看到光标在闪动，此时可以在单元格内部写代码或文本
-
 编辑状态——>选中状态：按esc
 选中状态——>编辑状态：按下enter
 
-单元格有两个<b>【模式】</b>
+单元格有两个**【模式】**
 
 Code 编码模式：运行代码，运行当前选中单元格：Ctrl+Enter
 
@@ -31,7 +28,7 @@ Markdown 文本模式：识别md语法
 
 两个模式切换：Code——>Markdown 在单元格选中状态下按下M，Y切回
 
-#### 单元格操作
+##### 单元格操作
 
 前提：保证单元格处于选中状态
 
@@ -41,4 +38,109 @@ Markdown 文本模式：识别md语法
 4. 复制单元格  按C   复制选中单元格
 5. 粘贴单元格  按V   粘贴粘贴板里的单元格
 6. 撤销单元格  按Z   撤销上一次的单元格操作
+#### ipython使用技巧
 
+##### 运行外部python文件
+
+%run test.py	运行外部python文件，相当于把整个文件的资源加载到jupyter notebook中了。所以py文件中所有的变量、函数等都可以直接使用
+
+##### 运行计时
+
+% 表示检测一行代码
+
+%% 表示检测多行代码
+
+time 代码运行一次
+
+times 代码运行多次求平均时间
+
+#### numpy
+
+numpy 提供了一种数组类型，高维数组，提供了数据分析的运算基础（业务表一般就是二维）
+
+##### 1. 创建列表
+
+使用np.array()由python List 创建
+
+数组的概念：数据类型一致的一个连续的内存空间
+
+python  列表（c语言说：列表其实就是一个指针数组），列表不要求数据类型一致
+
+numpy的数组：同样是一个<b>有序</b>的，<b>相同数据类型</b>的集合
+
+<b>注意</b>:
+
+* numpy默认ndarray的所以元素的类型是相同的
+* 如果传进来的列表中包含不同的类型，则会统一为同一类型，优先级：str>float>int
+
+##### 2. 使用np的routines函数创建
+
+##### 回顾
+
+1. 查看文档：shift+tab
+
+2. 输入输出历史：In Out
+
+3. %time %timeit  %%time %%timeit
+
+numpy:
+
+1. 特点：数据类型相同的有序数据集合，如果初始化数据类型不同，会强制类型统一。优先级：str>float>int
+
+2. 构造：np.array(list)
+
+   ​           np.ones(shape,dtype)    np.zeros()   np.full(shape,dtype,fill_value)
+
+   ​	   np.eye(N)
+
+   ​	    np.linspace(start, stop, num)    np.arange([start], stop, [step])
+
+   ​	    np,random.randint()   
+
+   ​	     np.random.randn()   
+
+   ​	     np.random.normal()
+
+   ​	     np.random.random()
+   ​    	np.random.permutation()
+
+3. 属性：ndim  shape  size  dtype
+
+4. 索引：访问元素：arr[index1,index2,index3.....]
+
+   ​            访问行：arr[行索引]
+
+   ​	    访问列：arr[:,列索引]
+
+   ​	    特殊的访问方式：使用列表（索引列表，bool列表）
+
+5. 切片：在每一个维度上指定切片范围
+
+   ​	    eg.  arr[rowindex1:rowindex2, colindex1:colindex2]
+
+6. 聚合运算：sum()  mean() std() var()  argmax()  argmin() np.median()
+
+   ​		   any()   all()    经常与逻辑表达式配合，比如查询一组数据中大于均值的所有数
+7. 广播预算：
+
+   * 缺失维度补1
+
+   * 用已有值填充
+
+​		最终目的：保证参与运算的两个数组形状一致
+
+​		array+ num
+
+8. 排序
+
+   ​	np.sort()   快速排序，堆排序
+
+   ​	np.partition()
+
+#### pandas
+
+numpy array  提供运算基础
+
+pandas 提供了业务逻辑的处理方法
+
+Series（一维）, DataFrame（二维）
