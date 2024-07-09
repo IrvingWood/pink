@@ -146,3 +146,99 @@ numpy array  提供运算基础
 pandas 提供了业务逻辑的处理方法
 
 Series（一维）, DataFrame（二维）
+
+构造：
+
+Series(data,index)  Series(data=dic,index)
+
+读取DataFrame
+
+索引访问：
+
+​	字典的访问：s[key]
+
+​	下标访问：s[index]
+
+​	loc访问：s.loc[key]
+
+​	iloc访问：s.iloc[index]
+
+​	列表访问：结合上面4种访问
+
+​	BOOL列表访问：list,numpy,长度匹配
+
+​				      series  长度匹配，索引匹配
+
+切片操作：
+
+​		注意：索引操作都是闭区间，下标操作都是开区间
+
+​	下标：s[index1:index2]
+
+​	loc iloc
+
+常规操作
+
+​		属性访问：index，values, dtype,shape
+
+​		查看头尾n个元素：head(), tail()
+
+​		isnull(), notnull()  配合any(), all()
+
+​		值排序：sort_values(ascending=True)
+
+​		索引排序：sort_index()
+
+​		统计元素次数：values_counts()
+
+​		去重操作：unique()   [A, B, A, B, C]——>[A, B, C]
+
+运算：
+
+​	Series + num	广播
+
+​	Series+ numpy	先转换为numpy类型再运算
+
+​	Series +Series 	索引对齐，不对齐补空值
+
+​	操作函数：add, sub, mul,div
+
+​	或者可以先处理空值再运算
+
+DataFrame
+
+构造：
+
+​	DataFrame(data,index, columns)
+
+​	DataFrame(data=dic, index)
+
+​	pd.read_excel(io, sheet_name, header, index_col)
+
+​	DataFrame(series )
+
+访问：
+
+​	访问列：df[column]
+
+​	访问行：df.loc[index]
+
+​	访问元素：df.loc[index, column]
+
+​	访问方式都可以结合列表\切片操作
+
+​	间接访问(只读)、直接访问（读写）
+
+​	【注意】直接用[]访问，索引是列索引，切片是行切片
+
+运算：
+
+​	聚合运算：默认是列方向的聚合，axis修改聚合方向
+
+​	DataFrame +num 	广播
+
+​	DataFrame + numpy  ——>  	df.values+numpy  广播	
+
+ 	DataFrame + Series  ——>	df.add(s, axis=0\1)  指定索引方向
+
+​	DataFrame +DataFrame  索引对齐
